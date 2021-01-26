@@ -17,6 +17,10 @@
     margin-left: auto;
 }
 
+header {
+    margin-top: 15px;
+}
+
 body {
     margin: 0;
     font-family: 'Karla', sans-serif;
@@ -52,6 +56,22 @@ a:hover {
 /*------------------------------
   Nav
 ------------------------------*/
+.hamburger {
+    background-color: transparent;
+    border: 0;
+    display: none;
+    color: #848484;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+/*------------------------------
+  Nav
+------------------------------*/
 .logo {
     text-transform: uppercase;
     font-weight: 700;
@@ -64,6 +84,7 @@ a:hover {
 
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -106,7 +127,8 @@ figcaption {
 .grid-products {
     display: grid;
     gap: 2.5em;
-    grid-template-columns: repeat(3, 1fr);
+    /*grid-template-columns: repeat(3, 1fr);*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: 1fr;
     margin: 10% 0;
 }
@@ -160,4 +182,21 @@ figcaption {
     border-radius: 50%;
     display: inline-block;
     margin: 0 8px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-ul.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
